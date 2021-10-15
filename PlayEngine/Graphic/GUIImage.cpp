@@ -1,6 +1,7 @@
 #include "Graphic/GUI_IMAGE.h"
 #include"Base/ShaderManager.h"
 #include "stb_image.h"
+#include "../Base/Resource.cpp"
 //adidier cambiar los nombre de los archivos de gui
 namespace Graphic
 {

@@ -1,15 +1,18 @@
 #include "Graphic/BaseModel.h"
+using namespace Game;
+namespace Graphic {
 
-void BaseModel::SetTransform(Transform _transform)
-{
-	transform = _transform;
-}
+	void BaseModel::SetTransform(Transform _transform)
+	{
+		transform = _transform;
+	}
 
-BaseModel::BaseModel()
-{
-}
+	BaseModel::BaseModel()
+	{
+	}
 
-Mesh* BaseModel::GetMesh()
-{
-	return meshList[0];
+	Mesh* BaseModel::GetMesh()
+	{
+		return meshList[0];
+	}
 }

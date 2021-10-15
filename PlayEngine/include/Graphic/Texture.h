@@ -7,6 +7,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <GL\glew.h>
 #include <string>
+
 //#include "stb_image.h"
 namespace Graphic
 {

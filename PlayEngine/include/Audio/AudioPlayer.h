@@ -7,18 +7,22 @@
 //#include <SDL.h>
 #include <SDL_mixer.h>
 
-class PLAYENGINE AudioPlayer : public Resource
+namespace Resources
 {
-private:
-	Mix_Chunk* shotSoundEfect = nullptr;
-	std::string pathToFile;
-	bool success = true;
+	class PLAYENGINE AudioPlayer : public Resource
+	{
+	private:
+		Mix_Chunk* shotSoundEfect = nullptr;
+		std::string pathToFile;
+		bool success = true;
 
-public:
+	public:
 
-	AudioPlayer(const unsigned int handle, const std::string& name, const std::string& path = "./");
-	virtual bool ReadFile() override;
-	virtual Resource* Load() override;
-	void PlaySoundEfect();
-	~AudioPlayer();
-};
+		AudioPlayer(const unsigned int handle, const std::string& name, const std::string& path = "./");
+		virtual bool ReadFile() override;
+		virtual Resource* Load() override;
+		void PlaySoundEfect();
+		~AudioPlayer();
+	};
+}
+

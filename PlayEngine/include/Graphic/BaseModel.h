@@ -8,8 +8,9 @@
 #include<vector>
 #include "../Base/Transform.h"
 #include "../Base/Resource.h"
+namespace Graphic{
 
-class PLAYENGINE BaseModel 
+class PLAYENGINE BaseModel
 {
 public:
 	BaseModel();
@@ -21,5 +22,6 @@ protected:
 	Transform transform;
 	std::vector<GLfloat> vertices;
 };
+}
 
 #endif

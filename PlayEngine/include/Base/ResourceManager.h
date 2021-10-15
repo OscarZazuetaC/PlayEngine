@@ -8,30 +8,32 @@
 #include <list> 
 #include <mutex>
 
-enum ResourceType
+namespace Resources
 {
-	Model3d,
-	Texture,
-	ImageUI,
-	LineUI,
-	Sound,
-	Music
-};
+	enum ResourceType
+	{
+		Model3d,
+		Texture,
+		ImageUI,
+		LineUI,
+		Sound,
+		Music
+	};
 
-const std::vector<std::vector<std::string>> ResourcesTypes = { {"obj","fbx"},{"png","jpg"},{"png"},{"png"},{"wav"} ,{"wav"} };
+	const std::vector<std::vector<std::string>> ResourcesTypes = { {"obj","fbx"},{"png","jpg"},{"png"},{"png"},{"wav"} ,{"wav"} };
 
-/*
-cargar todos los archivos de capeta Assets en memoria
-configuracion se va a asignar el directorio a cargar si no esta definido sera Assets
+	/*
+	cargar todos los archivos de capeta Assets en memoria
+	configuracion se va a asignar el directorio a cargar si no esta definido sera Assets
 
-map<nombre,path> assets;
-addAsset agrega archivos al mapa
-getPath obtiene los paths de los assets
+	map<nombre,path> assets;
+	addAsset agrega archivos al mapa
+	getPath obtiene los paths de los assets
 
-*/
+	*/
 
-class PLAYENGINE ResourceManager
-{
+	class PLAYENGINE ResourceManager
+	{
 	public:
 		std::mutex mu;
 	private:
@@ -45,7 +47,7 @@ class PLAYENGINE ResourceManager
 		static ResourceManager* ptr;
 		unsigned int AddResource(ResourceType type, const std::string& name, const  std::string& path);
 		void PathsReader(std::string path, bool force = false);
-		std::string GetPath(ResourceType type,const std::string &name);
+		std::string GetPath(ResourceType type, const std::string& name);
 	public:
 
 		static ResourceManager* GetPtr();
@@ -55,5 +57,6 @@ class PLAYENGINE ResourceManager
 		Resource* GetElement(const std::string& name);
 		void Wait();
 		void Load();
-		unsigned int Add(ResourceType type,const std::string& name);
-};
+		unsigned int Add(ResourceType type, const std::string& name);
+	};
+}

@@ -6,39 +6,41 @@
 #include <gtc\matrix_transform.hpp>
 #include <GLFW\glfw3.h>
 #include "Audio/AudioPlayer.h"
-
-class PLAYENGINE Camera
+namespace Graphic
 {
-public:
-	Camera();
-	Camera(glm::vec3 startPosition, glm::vec3 startUp, GLfloat startYaw, GLfloat startPitch, GLfloat startMoveSpeed, GLfloat startTurnSpeed);
+	class PLAYENGINE Camera
+	{
+	public:
+		Camera();
+		Camera(glm::vec3 startPosition, glm::vec3 startUp, GLfloat startYaw, GLfloat startPitch, GLfloat startMoveSpeed, GLfloat startTurnSpeed);
 
-	void keyControl(std::map<int, bool> keys, GLfloat deltaTime);
-	void mouseControl(GLfloat xChange, GLfloat yChange);
+		void keyControl(std::map<int, bool> keys, GLfloat deltaTime);
+		void mouseControl(GLfloat xChange, GLfloat yChange);
 
-	glm::mat4 calculateViewMatrix();
-	glm::vec3 getCameraPosition();
-	glm::vec3 getFront();
-	~Camera();
+		glm::mat4 calculateViewMatrix();
+		glm::vec3 getCameraPosition();
+		glm::vec3 getFront();
+		~Camera();
 
-private:
-	glm::vec3 position;
-	glm::vec3 nextPosition;
-	glm::vec3 front;
-	glm::vec3 up;
-	glm::vec3 right;
-	glm::vec3 worldUp;
+	private:
+		glm::vec3 position;
+		glm::vec3 nextPosition;
+		glm::vec3 front;
+		glm::vec3 up;
+		glm::vec3 right;
+		glm::vec3 worldUp;
 
-	GLfloat yaw;
-	GLfloat pitch;
+		GLfloat yaw;
+		GLfloat pitch;
 
-	GLfloat moveSpeed;
-	GLfloat turnSpeed;
-	GLfloat prevXPos, prevYPos;
-	float firstMove;
+		GLfloat moveSpeed;
+		GLfloat turnSpeed;
+		GLfloat prevXPos, prevYPos;
+		float firstMove;
 
-	void update();
+		void update();
 
-	AudioPlayer* audioPlayer;
-};
+		AudioPlayer* audioPlayer;
+	};
+}
 

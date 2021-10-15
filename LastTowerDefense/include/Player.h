@@ -6,7 +6,7 @@
 class Player
 {
 	private:
-		Camera camera;
+		Graphic::Camera camera;
 		Graphic::Model *model;
 		Transform transform;
 		btRigidBody* rigidBody;
@@ -14,7 +14,7 @@ class Player
 		int energy { 0 };
 	public:
 		Player();
-		Camera *GetCamera();
+		Graphic::Camera *GetCamera();
 		//adidier std::vector<glm::vec4> GetBoundingBox();
 };
 

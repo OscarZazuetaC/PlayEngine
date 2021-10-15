@@ -1,37 +1,41 @@
 #include"Base/Resource.h"
 
-Resource::Resource(const unsigned int handle, const std::string& name, const std::string& path)
+namespace Resources
 {
-	if (!name.empty())
-		this->name = name;
+	Resource::Resource(const unsigned int handle, const std::string& name, const std::string& path)
+	{
+		if (!name.empty())
+			this->name = name;
 
-	if (!path.empty())
-		this->path = path;
+		if (!path.empty())
+			this->path = path;
 
-	this->handle = handle;
+		this->handle = handle;
 
-	if (!name.empty() && !path.empty())
-		this->filename = path + name;
+		if (!name.empty() && !path.empty())
+			this->filename = path + name;
+	}
+
+	std::string Resource::GetName()
+	{
+		return name;
+	}
+
+	std::string Resource::GetPath()
+	{
+		return path;
+	}
+
+	std::string Resource::GetFilename()
+	{
+		return filename;
+	}
+
+	unsigned int Resource::GetHandle()
+	{
+		return handle;
+	}
 }
 
-std::string Resource::GetName()
-{
-	return name;
-}
-
-std::string Resource::GetPath()
-{
-	return path;
-}
-
-std::string Resource::GetFilename()
-{
-	return filename;
-}
-
-unsigned int Resource::GetHandle()
-{
-	return handle;
-}
 
 
